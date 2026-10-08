@@ -6,11 +6,7 @@ Sistema para gerenciar pacientes, profissionais da saúde, consultas, internaç�
 
 ## Integrantes
 
-- Nome Completo do Integrante 1
-- Nome Completo do Integrante 2
-- Nome Completo do Integrante 3
-- Nome Completo do Integrante 4
-- Nome Completo do Integrante 5
+- Arthur augusto Domingos Silva
 
 ## Sprint 1 — Entregas
 
