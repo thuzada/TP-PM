@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início | Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar"></aside>
+
+  <main>
+    <div class="page-header">
+      <div>
+        <h1>Painel</h1>
+        <p>Visão geral dos atendimentos do hospital</p>
+      </div>
+      <div>
+        <a class="btn" href="consultas.html">Agendar consulta</a>
+        <a class="btn secondary" href="internacoes.html">Nova internação</a>
+      </div>
+    </div>
+
+    <section class="stats">
+      <div class="stat"><div class="label">Pacientes cadastrados</div><div class="value">248</div></div>
+      <div class="stat"><div class="label">Consultas hoje</div><div class="value">17</div></div>
+      <div class="stat"><div class="label">Internações ativas</div><div class="value">12</div></div>
+      <div class="stat"><div class="label">Quartos disponíveis</div><div class="value">9 / 20</div></div>
+    </section>
+
+    <section class="card">
+      <h2>Próximas consultas</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Horário</th><th>Paciente</th><th>Profissional</th><th>Especialidade</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>08:00</td><td>Maria Souza</td><td>Dr. João Lima</td><td>Cardiologia</td><td><span class="badge info">Agendada</span></td></tr>
+            <tr><td>08:30</td><td>Pedro Alves</td><td>Dra. Ana Costa</td><td>Pediatria</td><td><span class="badge info">Agendada</span></td></tr>
+            <tr><td>09:00</td><td>Lucas Pereira</td><td>Dr. João Lima</td><td>Cardiologia</td><td><span class="badge info">Agendada</span></td></tr>
+            <tr><td>10:15</td><td>Fernanda Rocha</td><td>Dr. Carlos Melo</td><td>Ortopedia</td><td><span class="badge info">Agendada</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Altas previstas para hoje</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Paciente</th><th>Quarto</th><th>Entrada</th><th>Profissional</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>José Martins</td><td>203</td><td>02/10/2026</td><td>Dr. Carlos Melo</td></tr>
+            <tr><td>Clara Nunes</td><td>105</td><td>05/10/2026</td><td>Dra. Ana Costa</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

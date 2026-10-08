@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultas | Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar"></aside>
+
+  <main>
+    <div class="page-header">
+      <div>
+        <h1>Consultas</h1>
+        <p>Agendamento e controle de consultas</p>
+      </div>
+      <button class="btn" data-open="modal-consulta">+ Agendar consulta</button>
+    </div>
+
+    <section class="card">
+      <div class="toolbar">
+        <input type="date" value="2026-10-08">
+        <select>
+          <option>Todos os profissionais</option>
+          <option>Dr. João Lima</option>
+          <option>Dra. Ana Costa</option>
+          <option>Dr. Carlos Melo</option>
+        </select>
+        <select>
+          <option>Todos os status</option>
+          <option>Agendada</option>
+          <option>Realizada</option>
+          <option>Cancelada</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Data</th><th>Horário</th><th>Paciente</th><th>Profissional</th><th>Motivo</th><th>Status</th><th>Ações</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>08/10/2026</td><td>08:00</td><td>Maria Souza</td><td>Dr. João Lima</td><td>Dor no peito</td><td><span class="badge info">Agendada</span></td>
+              <td class="actions"><button class="btn sm secondary" data-open="modal-realizar">Registrar</button><button class="btn sm danger">Cancelar</button></td>
+            </tr>
+            <tr>
+              <td>08/10/2026</td><td>08:30</td><td>Pedro Alves</td><td>Dra. Ana Costa</td><td>Febre</td><td><span class="badge info">Agendada</span></td>
+              <td class="actions"><button class="btn sm secondary" data-open="modal-realizar">Registrar</button><button class="btn sm danger">Cancelar</button></td>
+            </tr>
+            <tr>
+              <td>07/10/2026</td><td>14:00</td><td>Fernanda Rocha</td><td>Dr. Carlos Melo</td><td>Dor no joelho</td><td><span class="badge success">Realizada</span></td>
+              <td class="actions"><a class="btn sm secondary" href="historico.html">Ver</a></td>
+            </tr>
+            <tr>
+              <td>06/10/2026</td><td>10:00</td><td>Lucas Pereira</td><td>Dr. João Lima</td><td>Retorno</td><td><span class="badge danger">Cancelada</span></td>
+              <td class="actions"><a class="btn sm secondary" href="historico.html">Ver</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal-consulta">
+    <div class="card">
+      <div class="modal-header">
+        <h2>Agendar consulta</h2>
+        <button class="close" data-close aria-label="Fechar">&times;</button>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div>
+            <label for="paciente">Paciente</label>
+            <select id="paciente" required>
+              <option value="">Selecione</option>
+              <option>Maria Souza</option>
+              <option>Pedro Alves</option>
+              <option>Fernanda Rocha</option>
+            </select>
+          </div>
+          <div>
+            <label for="profissional">Profissional responsável</label>
+            <select id="profissional" required>
+              <option value="">Selecione</option>
+              <option>Dr. João Lima — Cardiologia</option>
+              <option>Dra. Ana Costa — Pediatria</option>
+              <option>Dr. Carlos Melo — Ortopedia</option>
+            </select>
+          </div>
+          <div><label for="data">Data</label><input id="data" type="date" required></div>
+          <div>
+            <label for="horario">Horário</label>
+            <input id="horario" type="time" required>
+            <p class="hint">O profissional não pode ter outro atendimento neste horário.</p>
+          </div>
+          <div class="full"><label for="motivo">Motivo da consulta</label><input id="motivo" required></div>
+          <div class="full"><label for="obs">Observações médicas</label><textarea id="obs"></textarea></div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn secondary" data-close>Cancelar</button>
+          <button type="submit" class="btn">Agendar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-realizar">
+    <div class="card">
+      <div class="modal-header">
+        <h2>Registrar atendimento</h2>
+        <button class="close" data-close aria-label="Fechar">&times;</button>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div class="full"><label for="obs-realizada">Observações médicas</label><textarea id="obs-realizada" placeholder="Diagnóstico, conduta, prescrições..."></textarea></div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn secondary" data-close>Cancelar</button>
+          <button type="submit" class="btn">Marcar como realizada</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

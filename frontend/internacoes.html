@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internações | Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar"></aside>
+
+  <main>
+    <div class="page-header">
+      <div>
+        <h1>Internações</h1>
+        <p>Controle de internações e altas</p>
+      </div>
+      <button class="btn" data-open="modal-internacao">+ Nova internação</button>
+    </div>
+
+    <section class="card">
+      <div class="toolbar">
+        <input type="search" placeholder="Buscar por paciente">
+        <select>
+          <option>Ativas</option>
+          <option>Finalizadas</option>
+          <option>Todas</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Paciente</th><th>Quarto</th><th>Profissional</th><th>Entrada</th><th>Alta prevista</th><th>Alta efetiva</th><th>Situação</th><th>Ações</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>José Martins</td><td>203</td><td>Dr. Carlos Melo</td><td>02/10/2026</td><td>08/10/2026</td><td>—</td><td><span class="badge warning">Ativa</span></td>
+              <td class="actions"><button class="btn sm secondary" data-open="modal-alta">Dar alta</button></td>
+            </tr>
+            <tr>
+              <td>Clara Nunes</td><td>105</td><td>Dra. Ana Costa</td><td>05/10/2026</td><td>08/10/2026</td><td>—</td><td><span class="badge warning">Ativa</span></td>
+              <td class="actions"><button class="btn sm secondary" data-open="modal-alta">Dar alta</button></td>
+            </tr>
+            <tr>
+              <td>Maria Souza</td><td>301</td><td>Dr. João Lima</td><td>20/09/2026</td><td>25/09/2026</td><td>24/09/2026</td><td><span class="badge success">Alta</span></td>
+              <td class="actions"><a class="btn sm secondary" href="historico.html">Ver</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal-internacao">
+    <div class="card">
+      <div class="modal-header">
+        <h2>Nova internação</h2>
+        <button class="close" data-close aria-label="Fechar">&times;</button>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div>
+            <label for="paciente">Paciente</label>
+            <select id="paciente" required>
+              <option value="">Selecione</option>
+              <option>Maria Souza</option>
+              <option>Pedro Alves</option>
+              <option>Fernanda Rocha</option>
+            </select>
+          </div>
+          <div>
+            <label for="profissional">Profissional responsável</label>
+            <select id="profissional" required>
+              <option value="">Selecione</option>
+              <option>Dr. João Lima</option>
+              <option>Dra. Ana Costa</option>
+              <option>Dr. Carlos Melo</option>
+            </select>
+          </div>
+          <div>
+            <label for="quarto">Quarto</label>
+            <select id="quarto" required>
+              <option value="">Selecione</option>
+              <option>101 — 1º andar (1/2 ocupado)</option>
+              <option>102 — 1º andar (0/1 ocupado)</option>
+              <option>204 — 2º andar (2/4 ocupado)</option>
+            </select>
+            <p class="hint">Apenas quartos com vaga disponível são listados.</p>
+          </div>
+          <div><label for="entrada">Data de entrada</label><input id="entrada" type="date" required></div>
+          <div><label for="prevista">Data prevista de alta</label><input id="prevista" type="date"></div>
+          <div class="full"><label for="obs">Observações</label><textarea id="obs"></textarea></div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn secondary" data-close>Cancelar</button>
+          <button type="submit" class="btn">Internar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-alta">
+    <div class="card">
+      <div class="modal-header">
+        <h2>Registrar alta</h2>
+        <button class="close" data-close aria-label="Fechar">&times;</button>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div><label for="efetiva">Data efetiva de alta</label><input id="efetiva" type="date" required></div>
+          <div class="full"><label for="obs-alta">Observações da alta</label><textarea id="obs-alta"></textarea></div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn secondary" data-close>Cancelar</button>
+          <button type="submit" class="btn">Confirmar alta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

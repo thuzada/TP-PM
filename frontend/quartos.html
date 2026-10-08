@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quartos | Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar"></aside>
+
+  <main>
+    <div class="page-header">
+      <div>
+        <h1>Quartos</h1>
+        <p>Ocupação e disponibilidade dos quartos</p>
+      </div>
+      <button class="btn" data-open="modal-quarto">+ Novo quarto</button>
+    </div>
+
+    <section class="card">
+      <div class="toolbar">
+        <select>
+          <option>Todos os andares</option>
+          <option>1º andar</option>
+          <option>2º andar</option>
+          <option>3º andar</option>
+        </select>
+        <select>
+          <option>Todas as situações</option>
+          <option>Disponível</option>
+          <option>Ocupado</option>
+        </select>
+      </div>
+
+      <div class="rooms">
+        <div class="room">
+          <h3>101 <span class="badge success">Disponível</span></h3>
+          <div class="floor">1º andar</div>
+          <div class="bar"><span style="width:50%"></span></div>
+          <small>1 de 2 leitos ocupados</small>
+        </div>
+        <div class="room">
+          <h3>102 <span class="badge success">Disponível</span></h3>
+          <div class="floor">1º andar</div>
+          <div class="bar"><span style="width:0%"></span></div>
+          <small>0 de 1 leito ocupado</small>
+        </div>
+        <div class="room full">
+          <h3>105 <span class="badge danger">Ocupado</span></h3>
+          <div class="floor">1º andar</div>
+          <div class="bar"><span style="width:100%"></span></div>
+          <small>2 de 2 leitos ocupados</small>
+        </div>
+        <div class="room full">
+          <h3>203 <span class="badge danger">Ocupado</span></h3>
+          <div class="floor">2º andar</div>
+          <div class="bar"><span style="width:100%"></span></div>
+          <small>1 de 1 leito ocupado</small>
+        </div>
+        <div class="room">
+          <h3>204 <span class="badge success">Disponível</span></h3>
+          <div class="floor">2º andar</div>
+          <div class="bar"><span style="width:50%"></span></div>
+          <small>2 de 4 leitos ocupados</small>
+        </div>
+        <div class="room">
+          <h3>301 <span class="badge success">Disponível</span></h3>
+          <div class="floor">3º andar</div>
+          <div class="bar"><span style="width:0%"></span></div>
+          <small>0 de 2 leitos ocupados</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal-quarto">
+    <div class="card">
+      <div class="modal-header">
+        <h2>Cadastro de quarto</h2>
+        <button class="close" data-close aria-label="Fechar">&times;</button>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div><label for="numero">Número de identificação</label><input id="numero" required></div>
+          <div><label for="andar">Andar</label><input id="andar" type="number" min="0" required></div>
+          <div><label for="capacidade">Capacidade máxima de pacientes</label><input id="capacidade" type="number" min="1" required></div>
+          <div>
+            <label for="situacao">Situação atual</label>
+            <input id="situacao" value="Disponível" disabled>
+            <p class="hint">Calculada automaticamente pela ocupação.</p>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn secondary" data-close>Cancelar</button>
+          <button type="submit" class="btn">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

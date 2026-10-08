@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico Médico | Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar"></aside>
+
+  <main>
+    <div class="page-header">
+      <div>
+        <h1>Histórico Médico</h1>
+        <p>Consultas e internações realizadas pelo paciente</p>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="toolbar">
+        <select>
+          <option>Maria Souza — 123.456.789-00</option>
+          <option>Pedro Alves — 234.567.890-11</option>
+          <option>José Martins — 345.678.901-22</option>
+        </select>
+        <select>
+          <option>Todos os atendimentos</option>
+          <option>Somente consultas</option>
+          <option>Somente internações</option>
+        </select>
+      </div>
+      <div class="patient-info">
+        <div><span>Paciente</span>Maria Souza</div>
+        <div><span>CPF</span>123.456.789-00</div>
+        <div><span>Nascimento</span>12/03/1985 (41 anos)</div>
+        <div><span>Telefone</span>(31) 98888-1111</div>
+        <div><span>E-mail</span>maria@email.com</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><div class="label">Consultas realizadas</div><div class="value">5</div></div>
+      <div class="stat"><div class="label">Internações</div><div class="value">1</div></div>
+      <div class="stat"><div class="label">Último atendimento</div><div class="value">24/09</div></div>
+    </section>
+
+    <section class="card">
+      <h2>Linha do tempo</h2>
+      <ul class="timeline">
+        <li>
+          <div class="date">08/10/2026 · 08:00 · Consulta <span class="badge info">Agendada</span></div>
+          <h4>Dor no peito — Dr. João Lima (Cardiologia)</h4>
+          <p>Aguardando atendimento.</p>
+        </li>
+        <li class="internacao">
+          <div class="date">20/09/2026 a 24/09/2026 · Internação · Quarto 301</div>
+          <h4>Observação cardiológica — Dr. João Lima</h4>
+          <p>Paciente internada para monitoramento após episódio de arritmia. Alta antecipada com boa evolução.</p>
+        </li>
+        <li>
+          <div class="date">18/09/2026 · 09:30 · Consulta <span class="badge success">Realizada</span></div>
+          <h4>Palpitações — Dr. João Lima (Cardiologia)</h4>
+          <p>Solicitado Holter 24h e ECG. Indicada internação para observação.</p>
+        </li>
+        <li>
+          <div class="date">02/06/2026 · 14:00 · Consulta <span class="badge success">Realizada</span></div>
+          <h4>Check-up anual — Dra. Ana Costa (Clínica Geral)</h4>
+          <p>Exames de rotina dentro da normalidade.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profissionais | Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar"></aside>
+
+  <main>
+    <div class="page-header">
+      <div>
+        <h1>Profissionais da Saúde</h1>
+        <p>Cadastro de médicos, enfermeiros e demais profissionais</p>
+      </div>
+      <button class="btn" data-open="modal-profissional">+ Novo profissional</button>
+    </div>
+
+    <section class="card">
+      <div class="toolbar">
+        <input type="search" placeholder="Buscar por nome ou registro">
+        <select>
+          <option>Todas as especialidades</option>
+          <option>Clínica Geral</option>
+          <option>Cardiologia</option>
+          <option>Pediatria</option>
+          <option>Ortopedia</option>
+          <option>Neurologia</option>
+          <option>Enfermagem</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Nome</th><th>Registro</th><th>Especialidade</th><th>Telefone</th><th>E-mail</th><th>Ações</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dr. João Lima</td><td>CRM-MG 12345</td><td>Cardiologia</td><td>(31) 3333-1000</td><td>joao.lima@hospital.com</td>
+              <td class="actions"><a class="btn sm secondary" href="consultas.html">Agenda</a><button class="btn sm secondary" data-open="modal-profissional">Editar</button></td>
+            </tr>
+            <tr>
+              <td>Dra. Ana Costa</td><td>CRM-MG 23456</td><td>Pediatria</td><td>(31) 3333-1001</td><td>ana.costa@hospital.com</td>
+              <td class="actions"><a class="btn sm secondary" href="consultas.html">Agenda</a><button class="btn sm secondary" data-open="modal-profissional">Editar</button></td>
+            </tr>
+            <tr>
+              <td>Dr. Carlos Melo</td><td>CRM-MG 34567</td><td>Ortopedia</td><td>(31) 3333-1002</td><td>carlos.melo@hospital.com</td>
+              <td class="actions"><a class="btn sm secondary" href="consultas.html">Agenda</a><button class="btn sm secondary" data-open="modal-profissional">Editar</button></td>
+            </tr>
+            <tr>
+              <td>Enf. Paula Dias</td><td>COREN-MG 45678</td><td>Enfermagem</td><td>(31) 3333-1003</td><td>paula.dias@hospital.com</td>
+              <td class="actions"><a class="btn sm secondary" href="consultas.html">Agenda</a><button class="btn sm secondary" data-open="modal-profissional">Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal-profissional">
+    <div class="card">
+      <div class="modal-header">
+        <h2>Cadastro de profissional</h2>
+        <button class="close" data-close aria-label="Fechar">&times;</button>
+      </div>
+      <form>
+        <div class="form-grid">
+          <div class="full"><label for="nome">Nome completo</label><input id="nome" required></div>
+          <div><label for="registro">Registro profissional</label><input id="registro" placeholder="CRM / COREN" required></div>
+          <div>
+            <label for="especialidade">Especialidade</label>
+            <select id="especialidade" required>
+              <option value="">Selecione</option>
+              <option>Clínica Geral</option>
+              <option>Cardiologia</option>
+              <option>Pediatria</option>
+              <option>Ortopedia</option>
+              <option>Neurologia</option>
+              <option>Enfermagem</option>
+              <option>Outra</option>
+            </select>
+          </div>
+          <div><label for="telefone">Telefone</label><input id="telefone" type="tel"></div>
+          <div><label for="email">E-mail</label><input id="email" type="email"></div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn secondary" data-close>Cancelar</button>
+          <button type="submit" class="btn">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

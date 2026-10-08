@@ -1,0 +1,159 @@
+@startuml diagrama-classes
+title Sistema de Informação Hospitalar — Diagrama de Classes (Sprint 1)
+
+skinparam classAttributeIconSize 0
+!pragma layout smetana
+skinparam shadowing false
+skinparam class {
+  BackgroundColor #FDFDFD
+  BorderColor #2B6CB0
+  ArrowColor #2D3748
+}
+hide empty members
+
+package "model" {
+
+  abstract class Pessoa {
+    - id : Long
+    - nome : String
+    - telefone : String
+    - email : String
+    + getNome() : String
+    + getTelefone() : String
+    + getEmail() : String
+  }
+
+  class Paciente {
+    - cpf : String
+    - dataNascimento : LocalDate
+    + getCpf() : String
+    + getIdade() : int
+    + getEndereco() : Endereco
+    + getHistorico() : HistoricoMedico
+  }
+
+  class Endereco {
+    - logradouro : String
+    - numero : String
+    - complemento : String
+    - bairro : String
+    - cidade : String
+    - uf : String
+    - cep : String
+    + formatado() : String
+  }
+
+  class ProfissionalSaude {
+    - registroProfissional : String
+    + getRegistroProfissional() : String
+    + getEspecialidade() : Especialidade
+    + estaDisponivel(data : LocalDate, horario : LocalTime) : boolean
+    + adicionarAtendimento(a : Atendimento) : void
+  }
+
+  enum Especialidade {
+    CLINICA_GERAL
+    CARDIOLOGIA
+    PEDIATRIA
+    ORTOPEDIA
+    NEUROLOGIA
+    ENFERMAGEM
+    OUTRA
+  }
+
+  abstract class Atendimento {
+    - id : Long
+    - observacoes : String
+    + getPaciente() : Paciente
+    + getProfissional() : ProfissionalSaude
+    + {abstract} getDataReferencia() : LocalDate
+    + {abstract} conflitaCom(data : LocalDate, horario : LocalTime) : boolean
+  }
+
+  class Consulta {
+    - data : LocalDate
+    - horario : LocalTime
+    - motivo : String
+    + realizar(observacoes : String) : void
+    + cancelar() : void
+    + getStatus() : StatusConsulta
+    + getDataReferencia() : LocalDate
+    + conflitaCom(data : LocalDate, horario : LocalTime) : boolean
+  }
+
+  enum StatusConsulta {
+    AGENDADA
+    REALIZADA
+    CANCELADA
+  }
+
+  class Internacao {
+    - dataEntrada : LocalDate
+    - dataPrevistaAlta : LocalDate
+    - dataEfetivaAlta : LocalDate
+    + getQuarto() : Quarto
+    + estaAtiva() : boolean
+    + darAlta(data : LocalDate) : void
+    + getDataReferencia() : LocalDate
+    + conflitaCom(data : LocalDate, horario : LocalTime) : boolean
+  }
+
+  class Quarto {
+    - numero : String
+    - andar : int
+    - capacidadeMaxima : int
+    + getOcupacaoAtual() : int
+    + temVaga() : boolean
+    + getSituacao() : SituacaoQuarto
+    + ocupar(i : Internacao) : void
+    + liberar(i : Internacao) : void
+  }
+
+  enum SituacaoQuarto {
+    DISPONIVEL
+    OCUPADO
+  }
+
+  class HistoricoMedico {
+    + getConsultas() : List<Consulta>
+    + getInternacoes() : List<Internacao>
+    + listarAtendimentos() : List<Atendimento>
+    + registrar(a : Atendimento) : void
+  }
+}
+
+Pessoa <|-- Paciente
+Pessoa <|-- ProfissionalSaude
+Atendimento <|-- Consulta
+Atendimento <|-- Internacao
+
+Paciente *-- "1" Endereco : endereco
+Paciente *-- "1" HistoricoMedico : historico
+ProfissionalSaude --> "1" Especialidade : especialidade
+
+Paciente "1" <-- "0..*" Atendimento : paciente
+ProfissionalSaude "1" <-- "0..*" Atendimento : profissional
+ProfissionalSaude "1" --> "0..*" Atendimento : agenda
+
+Consulta --> "1" StatusConsulta : status
+Internacao "0..*" --> "1" Quarto : quarto
+Quarto "1" --> "0..*" Internacao : internacoesAtivas
+Quarto ..> SituacaoQuarto
+
+HistoricoMedico o-- "0..*" Atendimento : atendimentos
+
+note bottom of Quarto
+  RN5: ocupar() lança exceção se
+  getOcupacaoAtual() >= capacidadeMaxima.
+  Situação é derivada da ocupação.
+end note
+
+note right of ProfissionalSaude
+  RN3: não pode haver dois atendimentos
+  no mesmo horário — verificado por
+  estaDisponivel() antes de agendar.
+end note
+
+note "Sprints seguintes: camadas Controller → Service → Repository\nsobre estas classes de modelo (Spring Boot)." as N1
+
+@enduml

@@ -1,0 +1,18 @@
+# IDE / SO
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Java / Spring Boot (próximas sprints)
+target/
+build/
+.gradle/
+*.class
+*.log
+
+# Node
+node_modules/
+
+# Arquivos temporários do Word
+~$*.docx
