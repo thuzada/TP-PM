@@ -29,35 +29,3 @@ Sistema para gerenciar pacientes, profissionais da saúde, consultas, internaç�
 | Histórico Médico | `historico.html` | Linha do tempo de consultas e internações do paciente |
 
 Os dados exibidos são fictícios e estão fixos no HTML. Ao enviar um formulário, a tela apenas avisa que a funcionalidade virá nas próximas sprints.
-
-### Como executar o front-end
-
-Abra `frontend/index.html` no navegador, ou sirva a pasta:
-
-```bash
-cd frontend
-python3 -m http.server 8080
-# acesse http://localhost:8080
-```
-
-### Como regenerar o diagrama
-
-```bash
-java -jar plantuml.jar -tpng -tsvg docs/diagrama-classes.puml
-```
-
-O arquivo usa `!pragma layout smetana`, então não é preciso instalar o Graphviz.
-
-## Modelo de domínio (resumo)
-
-- `Pessoa` (abstrata) → `Paciente`, `ProfissionalSaude`
-- `Atendimento` (abstrata) → `Consulta`, `Internacao`
-- `Quarto` controla a capacidade máxima (RN5); a situação é derivada da ocupação
-- `ProfissionalSaude.estaDisponivel()` impede dois atendimentos no mesmo horário (RN3)
-- `HistoricoMedico` reúne consultas e internações do paciente (RN6)
-
-## Próximas sprints
-
-- API REST com Spring Boot (Controller → Service → Repository → Model)
-- Persistência em banco de dados (escolha e justificativa técnica a definir)
-- Tratamento de exceções e testes automatizados
