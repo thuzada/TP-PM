@@ -4,9 +4,9 @@ Trabalho prático de **Programação Modular** — Bacharelado em Engenharia de 
 
 Sistema para gerenciar pacientes, profissionais da saúde, consultas, internações, quartos e histórico médico de um hospital de médio porte.
 
-## Integrantes
+## Integrante
 
-- Arthur augusto Domingos Silva
+- Arthur Augusto Domingos Silva
 
 ## Sprint 1 — Entregas
 
@@ -14,7 +14,7 @@ Sistema para gerenciar pacientes, profissionais da saúde, consultas, internaç�
 |------|---------|
 | Front-end (telas sem funcionalidade) | [`frontend/`](frontend/) |
 | Diagrama de Classes | [`docs/diagrama-classes.png`](docs/diagrama-classes.png) · fonte PlantUML: [`docs/diagrama-classes.puml`](docs/diagrama-classes.puml) |
-| Cartões CRC | [`docs/Cartoes-CRC.docx`](docs/Cartoes-CRC.docx) |
+| Cartões CRC | [`docs/Cartoes-CRC.pdf`](docs/Cartoes-CRC.pdf) · editável: [`docs/Cartoes-CRC.docx`](docs/Cartoes-CRC.docx) |
 
 ### Telas
 
